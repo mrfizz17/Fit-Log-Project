@@ -1,34 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { FiAlignJustify } from "react-icons/fi";
 
 const Navbar = () => {
   return (
-    <div className="bg-[#0C0D10] border-2">
+    <div className="bg-[#0C0D10] border-2 font-sans">
       <div className="navbar bg-[#0C0D10] shadow-sm  container mx-auto">
-        <div className="navbar-start justify-between lg:justify-start col-span-2">
+        <div className="navbar-start lg:justify-start gap-5">
           <div className="dropdown">
             <div
               tabIndex={0}
               role="button"
               className=" btn btn-ghost bg-[#C2F800]  lg:hidden"
             >
-              <svg
-                aria-label="Menu"
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 "
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="black"
-              >
-                {" "}
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
-              </svg>
+              <FiAlignJustify className="text-2xl" />
+              
             </div>
             <ul
               tabIndex={-1}
@@ -50,7 +37,7 @@ const Navbar = () => {
               width={25}
               height={225}
             ></Image>
-            <p className="text-white  ml-2 font-semibold text-[20px]">FITLOG</p>
+            <p className="text-white  ml-2 font-bold text-[20px] ">FITLOG</p>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -65,7 +52,7 @@ const Navbar = () => {
             
           </ul>
         </div>
-        <div className="navbar-end col-span-1 gap-8">
+        <div className="navbar-end col-span-1 gap-2 md:gap-8">
           <Link href={"/my-plan"}>
             <button className="flex cursor-pointer items-center">
               <p className="text-[#eff1f3] cursor-pointer font-semibold text-[18px] ">
