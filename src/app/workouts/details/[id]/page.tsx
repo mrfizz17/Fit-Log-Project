@@ -1,9 +1,10 @@
 import Image from "next/image";
-import React from "react";
+import React, { useContext } from "react";
 import { Iexcercise } from "@/types/Excercise";
 
-import { MdAssignmentAdd } from "react-icons/md";
-import { LuBookmark } from "react-icons/lu";
+import AddButton from "@/componets/LibraryList/button/AddButton";
+import SavedButton from "@/componets/LibraryList/button/SavedButton";
+
 
 interface Iparams {
     params:{
@@ -110,9 +111,8 @@ const page = async ({params}:Iparams) => {
 
 
           <div className="flex gap-2 mt-2">
-             <button className="btn  px-6  font-sans text-[12px] font-bold text-black bg-[#C2F800] border-none"><MdAssignmentAdd className="text-[20px]" />Add to todays plan</button>
-            <button className="btn shadow-none text-[#E5E7EB]  font-sans text-[12px] font-bold bg-[#0F1115] border border-[#374151] "><LuBookmark className="text-[15px]"/>Save for later</button>
-
+            <AddButton excercise={excercise}/>
+            <SavedButton excercise={excercise} />
           </div>
         </div>
       </div>

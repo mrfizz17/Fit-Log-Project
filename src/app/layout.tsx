@@ -1,23 +1,22 @@
 import type { Metadata } from "next";
-import { Inter, Oswald} from "next/font/google";
+import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import Navbar from "@/componets/Navbar";
 import Hero from "@/componets/Hero";
 import Footer from "@/componets/Footer";
+import ContextProvider from "@/context/ExerciseContext";
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter', // Define the custom CSS variable
-  display: 'swap',
+  subsets: ["latin"],
+  variable: "--font-inter", // Define the custom CSS variable
+  display: "swap",
 });
 
-
-
-const oswald=Oswald({
-  subsets:["latin"],
-  variable: '--font-oswald'
-})
+const oswald = Oswald({
+  subsets: ["latin"],
+  variable: "--font-oswald",
+});
 
 export const metadata: Metadata = {
   title: "FitLog-- Workout",
@@ -32,18 +31,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.className} ${oswald.className}   h-full antialiased bg-[#0C0D10]`}
     >
       <body className="min-h-full flex flex-col ">
-        <Navbar/>
-        
-        <div className="grow px-5">
-        {children}
+        <ContextProvider>
+          <Navbar />
 
-        </div>
-        <ToastContainer />
-        <Footer />
-        
-        </body>
-
-      
+          <div className="grow px-5">{children}</div>
+          <ToastContainer />
+          <Footer />
+        </ContextProvider>
+      </body>
     </html>
   );
 }
