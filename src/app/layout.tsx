@@ -31,10 +31,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-theme="light"
       className={`${inter.className} ${oswald.className}   h-full antialiased bg-[#0C0D10]`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col ">
         <Navbar/>
         
+        <div className="grow px-5">
         {children}
+
+        </div>
         <ToastContainer />
         <Footer />
         

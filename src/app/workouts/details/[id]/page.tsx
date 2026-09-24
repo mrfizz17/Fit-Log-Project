@@ -26,14 +26,14 @@ const page = async ({params}:Iparams) => {
   console.log(excercise);
 
   return (
-    <div className="container mx-auto mt-15 mb-15">
+    <div className="container mx-auto mt-15 mb-15 flex">
       <div className="card card-side block lg:flex shadow-sm gap-8">
         <Image
           src={`${excercise.image}`}
           alt="Movie"
           width={580}
           height={580}
-          className="w-full lg:w-[500px] h-full rounded-3xl "
+          className="h-[500px] lg:h-full rounded-3xl "
         />
 
         <div className="card-body text-amber-50 p-0 mt-5 lg:mt-0">
