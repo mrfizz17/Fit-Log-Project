@@ -1,7 +1,7 @@
 'use client'
 
 import { Iexcercise } from '@/types/Excercise';
-import React, { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react';
+import React, { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from 'react';
 
 
 
@@ -12,7 +12,18 @@ export interface Icontext {
     setTodaysPlan:Dispatch<SetStateAction<Iexcercise[]>>,
     setSavedPlan:Dispatch<SetStateAction<Iexcercise[]>>
 }
-export const exerciseContext = createContext<Icontext | null>(null);
+export const exerciseContext = createContext<Icontext |null >(null);
+
+
+export const useCustomContest=()=>{
+    const context = useContext(exerciseContext);
+
+    if(!context){
+        throw new Error("useExerciseContext must be used inside ContextProvider");
+    }
+
+    return context
+}
 
 
 const ContextProvider = ({children}:{children:ReactNode})=> {

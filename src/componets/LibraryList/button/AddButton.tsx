@@ -1,14 +1,12 @@
 "use client";
-import { exerciseContext } from "@/context/ExerciseContext";
+import {  useCustomContest } from "@/context/ExerciseContext";
 import { Iexcercise } from "@/types/Excercise";
-import React, { Dispatch, SetStateAction, useContext } from "react";
 import { MdAssignmentAdd } from "react-icons/md";
-import { Icontext } from "@/context/ExerciseContext";
 import { toast } from "react-toastify";
 
 
 const AddButton = ({ excercise }: {excercise:Iexcercise}) => {
-  const { todaysPlan, setTodaysPlan }= useContext(exerciseContext);
+  const { todaysPlan, setTodaysPlan }= useCustomContest();;
 
   const handleClick = () => {
     const present = todaysPlan.find((e) => {

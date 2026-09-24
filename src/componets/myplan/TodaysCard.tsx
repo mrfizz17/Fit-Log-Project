@@ -1,5 +1,5 @@
 "use client";
-import { exerciseContext, Icontext } from "@/context/ExerciseContext";
+import { exerciseContext, Icontext, useCustomContest } from "@/context/ExerciseContext";
 import { Iexcercise } from "@/types/Excercise";
 import Image from "next/image";
 import React, { useContext } from "react";
@@ -9,7 +9,7 @@ import { MdDone } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 
 const TodaysCard = () => {
-  const { todaysPlan }= useContext(exerciseContext);
+  const { todaysPlan }= useCustomContest();
 
   console.log(todaysPlan);
 
