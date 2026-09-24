@@ -21,7 +21,7 @@ const Library = async() => {
   const excercises = await getproducts();
   console.log(excercises);
   return (
-    <div className="container mx-auto  mt-10 ">
+    <div className="container mx-auto  mt-10 mb-10">
 
 
     <p className="text-white text-4xl">THE LIBRARY</p>
