@@ -2,9 +2,9 @@
 import React from "react";
 
 import LibrayCard from "./LibrayCard";
-import { error } from "console";
+import { Iexcercise } from "@/types/Excercise";
 
-const getproducts = async()=>{
+const getproducts = async():Promise<Iexcercise[]>=>{
     const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
 
     // if(!res.ok){
@@ -18,7 +18,7 @@ const getproducts = async()=>{
 
 const Library = async() => {
 
-  const excercises = await getproducts();
+  const excercises:Iexcercise[] = await getproducts();
   console.log(excercises);
   return (
     <div className="container mx-auto  mt-10 mb-10">
@@ -29,7 +29,7 @@ const Library = async() => {
     <div className=" mt-6 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
 
       {
-        excercises.map((excercise)=>{
+        excercises.map((excercise:Iexcercise)=>{
           return(
               <LibrayCard  key = {excercise.id} excercise={excercise}/>
           )

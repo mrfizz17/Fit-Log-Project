@@ -2,8 +2,12 @@ import Image from "next/image";
 import React from "react";
 import { CiStar } from "react-icons/ci";
 import { FaFire, FaRegClock } from "react-icons/fa";
+import { Iexcercise } from "@/types/Excercise";
+interface propsType{
+  excercise:Iexcercise;
+}
 
-const LibrayCard = ({ excercise }) => {
+const LibrayCard = ({ excercise }:propsType) => {
   return (
     <div className="card bg-[#15171D] border border-transparent shadow-lg  hover:border-[#C2F800] transition-colors duration-500">
       <figure className="h-50 w-full">
