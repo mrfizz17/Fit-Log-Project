@@ -22,7 +22,7 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content  rounded-box z-1 mt-3 w-52 p-2 shadow bg-[#C2F800] text-2xl text-black space-y-1"
             >
               <li className="border-b-2 border-black">
-                <Link href={`workouts`}> Workouts </Link>
+                <Link href={"/"}> Workouts </Link>
               </li>
               <li>
                 <Link href={`/my-plan`}>My Plan</Link>
@@ -44,7 +44,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 gap-5">
             <li className="bg-[#1A2312] px-2 rounded-3xl text-[14px] font-semibold">
               
-              <Link href="/workouts" className="text-[#C2F800]">Workouts</Link>
+              <Link href="/" className="text-[#C2F800]">Workouts</Link>
             </li>
             <li className="text-[14px] font-semibold">
               <Link href={`/my-plan`} className="text-[#9CA3AF]">My Plan</Link>

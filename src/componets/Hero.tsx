@@ -8,7 +8,7 @@ const Hero = () => {
         <Image
           alt="Hero logo"
           src="/banner.png"
-          className="max-w-md rounded-lg self-center"
+          className="max-w-[300px] md:max-w-full rounded-lg self-center"
           width={400}
           height={400}
         />
@@ -24,7 +24,7 @@ const Hero = () => {
             FitLog is a dark, no-nonsense gym companion: pick a lift, lock it <br className="hidden lg:block"/>
             into today's plan, and watch the week's work add up.
           </p>
-          <button className="btn btn-primary  w-full sm:w-[200px] font-sans text-[12px] font-bold text-black bg-[#C2F800] border-none">BROWSE WORKOUTS</button>
+          <button className="btn btn-primary px-4 font-sans text-[12px] font-bold text-black bg-[#C2F800] border-none">BROWSE WORKOUTS</button>
         </div>
       </div>
     </div>
