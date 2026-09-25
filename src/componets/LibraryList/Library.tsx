@@ -21,7 +21,7 @@ const Library = async() => {
   const excercises:Iexcercise[] = await getproducts();
   console.log(excercises);
   return (
-    <div className="container mx-auto  mt-10 mb-10">
+    <div id="explore-library" className="container mx-auto  mt-10 mb-10 scroll-mt-25">
 
 
     <p className="text-white text-4xl">THE LIBRARY</p>

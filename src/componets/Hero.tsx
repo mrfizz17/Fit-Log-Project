@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import Library from "./LibraryList/Library";
 
 const Hero = () => {
   return (
@@ -17,14 +19,19 @@ const Hero = () => {
             WORKOUT LIBRARY
           </p>
           <h1 className="text-4xl lg:text-5xl font-bold text-white ">
-            TRAIN WITH INTENT. LOG <br className="hidden lg:block"/>
+            TRAIN WITH INTENT. LOG <br className="hidden lg:block" />
             EVERY SET.
           </h1>
-          <p className="py-4 text-[#9CA3AF] font-sans font-semibold text-[15px]">
-            FitLog is a dark, no-nonsense gym companion: pick a lift, lock it <br className="hidden lg:block"/>
+          <p className="py-4 text-[#9CA3AF] font-sans font-semibold text-[15px] italic">
+            FitLog is a dark, no-nonsense gym companion: pick a lift, lock it{" "}
+            <br className="hidden lg:block" />
             into today's plan, and watch the week's work add up.
           </p>
-          <button className="btn btn-primary px-4 font-sans text-[12px] font-bold text-black bg-[#C2F800] border-none">BROWSE WORKOUTS</button>
+          <Link href="#explore-library">
+            <button className="btn btn-primary px-4 font-sans text-[12px] font-bold text-black bg-[#C2F800] border-none">
+              BROWSE WORKOUTS
+            </button>
+          </Link>
         </div>
       </div>
     </div>

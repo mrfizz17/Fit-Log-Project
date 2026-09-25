@@ -67,11 +67,11 @@ const Page = () => {
 
       <div className="md:flex  justify-between mt-10  md:mb-0">
         {/* name of each tab group should be unique */}
-        <div className="tabs tabs-box bg-[#151921] w-[150px]">
+        <div className="tabs tabs-box bg-[#151921] w-[180px] py-2">
           <input
             type="radio"
             name="my_tabs_1"
-            className={`tab  text-[#C4F000] ${currentTab === "today" ? "bg-[#1F242D]" : ""} `}
+            className={`tab text-[18px]  ${currentTab === "today" ? "bg-[#1F242D] text-[#C4F000]" : "text-white"} `}
             aria-label="Today's plan"
             onChange={() => {
               setTab("today");
@@ -81,7 +81,7 @@ const Page = () => {
           <input
             type="radio"
             name="my_tabs_1"
-            className={`tab  text-[#C4F000] ${currentTab === "saved" ? "bg-[#1F242D]" : ""} `}
+            className={`tab  text-[18px] ${currentTab === "saved" ? "bg-[#1F242D] text-[#C4F000]" : "text-white"}`}
             aria-label="Saved"
             onChange={() => {
               setTab("saved");
