@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { FiAlignJustify } from "react-icons/fi";
 import Button from "./NavbarButton/Button";
+import HighLightButton from "./NavbarButton/HighLightButton";
 
 const Navbar = () => {
   return (
@@ -43,18 +44,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-5">
-            <li className="bg-[#1A2312] px-2 rounded-3xl text-[14px] font-semibold">
-              <Link href="/" className="text-[#C2F800]">
-                Workouts
-              </Link>
-            </li>
-            <li className="text-[14px] font-semibold">
-              <Link href={`/my-plan`} className="text-[#9CA3AF]">
-                My Plan
-              </Link>
-            </li>
-          </ul>
+          <HighLightButton />
         </div>
         <Button />
       </div>
