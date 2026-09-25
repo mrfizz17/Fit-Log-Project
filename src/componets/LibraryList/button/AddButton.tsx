@@ -1,12 +1,11 @@
 "use client";
-import {  useCustomContext } from "@/context/ExerciseContext";
+import { useCustomContext } from "@/context/ExerciseContext";
 import { Iexcercise } from "@/types/Excercise";
 import { MdAssignmentAdd } from "react-icons/md";
-import { toast } from "react-toastify";
+import { toast, Zoom } from "react-toastify";
 
-
-const AddButton = ({ excercise }: {excercise:Iexcercise}) => {
-  const { todaysPlan, setTodaysPlan }= useCustomContext();;
+const AddButton = ({ excercise }: { excercise: Iexcercise }) => {
+  const { todaysPlan, setTodaysPlan } = useCustomContext();
 
   const handleClick = () => {
     const present = todaysPlan.find((e) => {
@@ -14,10 +13,30 @@ const AddButton = ({ excercise }: {excercise:Iexcercise}) => {
     });
 
     if (present) {
-      toast.warning("already added");
+      toast.warning("Its Already added", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Zoom,
+      });
     } else {
       setTodaysPlan([...todaysPlan, excercise]);
-      toast.success(`${excercise.name} added to todays plan`)
+      toast.success(`${excercise.name} added to todays plan`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Zoom,
+      });
     }
   };
 

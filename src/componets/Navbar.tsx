@@ -6,7 +6,7 @@ import Button from "./NavbarButton/Button";
 
 const Navbar = () => {
   return (
-    <div className="bg-[#0C0D10] border-2 font-sans">
+    <div className="bg-[#0C0D10] border-2 font-sans sticky top-0 z-50">
       <div className="navbar bg-[#0C0D10] shadow-sm  container mx-auto">
         <div className="navbar-start lg:justify-start gap-5">
           <div className="dropdown">

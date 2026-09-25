@@ -34,10 +34,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ContextProvider>
           <Navbar />
 
-          <div className="grow px-2">{children}</div>
+          <div className="grow px-4">{children}</div>
           <ToastContainer
             position="top-right"
-            autoClose={4000}
+            autoClose={2000}
             hideProgressBar={false}
             newestOnTop
             closeOnClick={false}
@@ -45,7 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             pauseOnFocusLoss={false}
             draggable
             pauseOnHover
-            theme="light"
+            theme="coloured"
             transition={Zoom}
           />
           <Footer />

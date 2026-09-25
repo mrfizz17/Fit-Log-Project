@@ -4,10 +4,9 @@ import NoPlan from "@/componets/myplan/NoPlan";
 import SavedPlan from "@/componets/myplan/SavedPlan";
 import TodaysCard from "@/componets/myplan/TodaysCard";
 import { useCustomContext } from "@/context/ExerciseContext";
-import { Iexcercise } from "@/types/Excercise";
 import React, { useState } from "react";
 
-const page = () => {
+const Page = () => {
   const { todaysPlan, savedPlan } = useCustomContext();
 
   // const [renderData, setRenderData] = useState(todaysPlan);
@@ -118,4 +117,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

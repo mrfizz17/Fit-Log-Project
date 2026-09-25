@@ -2,7 +2,7 @@
 import { useCustomContext } from "@/context/ExerciseContext";
 import { Iexcercise } from "@/types/Excercise";
 import { LuBookmark } from "react-icons/lu";
-import { toast } from "react-toastify";
+import { toast, Zoom } from "react-toastify";
 
 const SavedButton = ({ excercise }: { excercise: Iexcercise }) => {
   const { savedPlan, setSavedPlan } = useCustomContext();
@@ -13,10 +13,30 @@ const SavedButton = ({ excercise }: { excercise: Iexcercise }) => {
     });
 
     if (present) {
-      toast.warning("already added");
+      toast.warning("Its Already added", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Zoom,
+      });
     } else {
       setSavedPlan([...savedPlan, excercise]);
-      toast.success(`${excercise.name} added to Saved plan`);
+      toast.success(`${excercise.name} added to Saved plan`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Zoom,
+      });
     }
   };
   return (
