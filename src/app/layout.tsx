@@ -34,7 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ContextProvider>
           <Navbar />
 
-          <div className="grow px-5">{children}</div>
+          <div className="grow px-2">{children}</div>
           <ToastContainer />
           <Footer />
         </ContextProvider>

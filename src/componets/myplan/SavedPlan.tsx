@@ -1,10 +1,11 @@
+import { Iexcercise } from '@/types/Excercise';
 import Image from 'next/image';
 import React from 'react';
 import { CiStar } from 'react-icons/ci';
 import { FaFire, FaRegClock } from 'react-icons/fa';
 import { RxCross2 } from 'react-icons/rx';
 
-const SavedPlan = () => {
+const SavedPlan = ({savedPlan}:{savedPlan : Iexcercise[]}) => {
     return (
         <div>
             <div className="lg:flex space-y-4 lg:space-y-0  gap-5 justify-between   mt-10 bg-[#1A1D23] rounded-3xl p-5">

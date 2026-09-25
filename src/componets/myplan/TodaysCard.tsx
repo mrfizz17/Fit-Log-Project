@@ -1,23 +1,29 @@
 "use client";
-import { exerciseContext, Icontext, useCustomContest } from "@/context/ExerciseContext";
+import {
+  exerciseContext,
+  Icontext,
+  useCustomContest,
+} from "@/context/ExerciseContext";
 import { Iexcercise } from "@/types/Excercise";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useContext } from "react";
 import { CiStar } from "react-icons/ci";
 import { FaFire, FaRegClock } from "react-icons/fa";
 import { MdDone } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 
-const TodaysCard = () => {
-  const { todaysPlan }= useCustomContest();
-
+const TodaysCard = ({ todaysPlan }: { todaysPlan: Iexcercise[] }) => {
   console.log(todaysPlan);
 
   return (
     <>
-      {todaysPlan.map((exercise:Iexcercise) => {
+      {todaysPlan.map((exercise: Iexcercise) => {
         return (
-          <div key={exercise.id} className="lg:flex space-y-4 lg:space-y-0 gap-5 justify-between   mt-10 bg-[#1A1D23] rounded-3xl p-4">
+          <div
+            key={exercise.id}
+            className="lg:flex space-y-4 lg:space-y-0 gap-5 justify-between   mt-10 bg-[#1A1D23] rounded-3xl p-3"
+          >
             <Image
               src={`${exercise.image}`}
               alt="alt image"
@@ -28,26 +34,34 @@ const TodaysCard = () => {
 
             <div className=" grow text-white space-y-2">
               <p className="text-2xl ">{exercise.name}</p>
-              <p className="font-sans text-[#8A92A0] -mt-2">{exercise.equipment}</p>
+              <p className="font-sans text-[#8A92A0] -mt-2">
+                {exercise.equipment}
+              </p>
               <div className="flex text-[15px] gap-4 justify-start font-sans text-[#9CA3AF] font-semibold">
                 <span className="flex items-center gap-1 ">
                   <FaRegClock className="text-[#C2F800] text-[15px] storke-2" />{" "}
                   {exercise.duration} min
                 </span>
                 <span className="flex items-center gap-1">
-                  <FaFire className="text-[#C2F800] text-[15px]" /> {exercise.caloriesBurned} kcal
+                  <FaFire className="text-[#C2F800] text-[15px]" />{" "}
+                  {exercise.caloriesBurned} kcal
                 </span>
                 <span className="flex items-center gap-1">
-                  <CiStar className="text-[#C2F800] text-[18px] stroke-2" /> {exercise.rating}
+                  <CiStar className="text-[#C2F800] text-[18px] stroke-2" />{" "}
+                  {exercise.rating}
                 </span>
               </div>
             </div>
-            <div className="flex items-center gap-5">
-              <button className="btn  btn-outline hover:bg-[#1A1D23] border-2 border-[#374151] text-white font-sans font-normal px-8 rounded-3xl">
-                View Details
-              </button>
-              <button className="btn bg-[#C2F800] border-none text-[15px] px-8 rounded-3xl ">
-                <MdDone className="text-[16px]" />
+            <div className="flex items-center gap-2 md:gap-5">
+              <Link href={`workouts/details/${exercise.id}`}>
+                <button className="btn py-0  btn-outline hover:bg-[#1A1D23] border-2 border-[#374151] text-white font-sans font-normal md:px-8 rounded-3xl">
+                  View Details
+                </button>
+              </Link>
+
+              
+              <button className="btn shadow-none py-0 bg-[#C2F800] text-[12px] border-none md:text-[15px] px-3 md:px-8 rounded-3xl ">
+                <MdDone className="md:text-[16px]" />
                 Mark as Done
               </button>
               <RxCross2 className="text-[#8A92A0] text-2xl cursor-pointer" />
