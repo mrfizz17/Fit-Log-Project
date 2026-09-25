@@ -1,17 +1,11 @@
-"use client";
-import {
-  exerciseContext,
-  Icontext,
-  useCustomContest,
-} from "@/context/ExerciseContext";
+
 import { Iexcercise } from "@/types/Excercise";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useContext } from "react";
 import { CiStar } from "react-icons/ci";
 import { FaFire, FaRegClock } from "react-icons/fa";
-import { MdDone } from "react-icons/md";
-import { RxCross2 } from "react-icons/rx";
+import MarkAsDone from "./MyPlanButton/MarkAsDone";
+import DeleteButton from "./MyPlanButton/DeleteButton";
 
 const TodaysCard = ({ todaysPlan }: { todaysPlan: Iexcercise[] }) => {
   console.log(todaysPlan);
@@ -59,12 +53,10 @@ const TodaysCard = ({ todaysPlan }: { todaysPlan: Iexcercise[] }) => {
                 </button>
               </Link>
 
+              <MarkAsDone exercise={exercise}/>
               
-              <button className="btn shadow-none py-0 bg-[#C2F800] text-[12px] border-none md:text-[15px] px-3 md:px-8 rounded-3xl ">
-                <MdDone className="md:text-[16px]" />
-                Mark as Done
-              </button>
-              <RxCross2 className="text-[#8A92A0] text-2xl cursor-pointer" />
+              <DeleteButton exercise={exercise} type="today" />
+              
             </div>
           </div>
         );

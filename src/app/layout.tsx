@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, Zoom } from "react-toastify";
 import Navbar from "@/componets/Navbar";
 import Hero from "@/componets/Hero";
 import Footer from "@/componets/Footer";
@@ -35,7 +35,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Navbar />
 
           <div className="grow px-2">{children}</div>
-          <ToastContainer />
+          <ToastContainer
+            position="top-right"
+            autoClose={4000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss={false}
+            draggable
+            pauseOnHover
+            theme="light"
+            transition={Zoom}
+          />
           <Footer />
         </ContextProvider>
       </body>

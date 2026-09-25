@@ -3,15 +3,33 @@
 import NoPlan from "@/componets/myplan/NoPlan";
 import SavedPlan from "@/componets/myplan/SavedPlan";
 import TodaysCard from "@/componets/myplan/TodaysCard";
-import { useCustomContest } from "@/context/ExerciseContext";
+import { useCustomContext } from "@/context/ExerciseContext";
 import { Iexcercise } from "@/types/Excercise";
 import React, { useState } from "react";
 
 const page = () => {
-  const { todaysPlan, savedPlan } = useCustomContest();
+  const { todaysPlan, savedPlan } = useCustomContext();
 
-  const [renderData, setRenderData] = useState(todaysPlan);
+  // const [renderData, setRenderData] = useState(todaysPlan);
+
   const [currentTab, setTab] = useState("today");
+
+  const [sortType, setSortType] = useState("duration");
+
+
+  const renderData = [
+    ...(currentTab === "today" ? todaysPlan : savedPlan),
+  ].sort((a, b) => {
+    if (sortType === "duration") {
+      return b.duration - a.duration;
+    }
+
+    if (sortType === "calories") {
+      return b.caloriesBurned - a.caloriesBurned;
+    }
+
+    return b.rating - a.rating;
+  });
 
   return (
     <div className="container mx-auto px-5 mt-5 mb-10">
@@ -57,7 +75,6 @@ const page = () => {
             className={`tab  text-[#C4F000] ${currentTab === "today" ? "bg-[#1F242D]" : ""} `}
             aria-label="Today's plan"
             onChange={() => {
-              setRenderData(todaysPlan);
               setTab("today");
             }}
             checked={currentTab === "today" ? true : false}
@@ -68,7 +85,6 @@ const page = () => {
             className={`tab  text-[#C4F000] ${currentTab === "saved" ? "bg-[#1F242D]" : ""} `}
             aria-label="Saved"
             onChange={() => {
-              setRenderData(savedPlan);
               setTab("saved");
             }}
             checked={currentTab === "saved" ? true : false}
@@ -78,12 +94,15 @@ const page = () => {
         <div className="mt-5 md:mt-0 flex gap-5 items-center">
           <p className="text-2xl text-[#C2F800]">Sort By</p>
           <select
-            defaultValue="duration"
+            defaultValue={sortType}
             className="select w-[200px] bg-transparent shadow-none border-2 border-[#374151] text-white rounded-3xl"
+            onChange={(e) => {
+              setSortType(e.target.value);
+            }}
           >
-            <option value={"duration"}>Duration</option>
-            <option value={"calories"}>Calories</option>
-            <option value={"rating"}>Rating</option>
+            <option value="duration">Duration</option>
+            <option value="calories">Calories</option>
+            <option value="rating">Rating</option>
           </select>
         </div>
       </div>
@@ -93,7 +112,7 @@ const page = () => {
       ) : currentTab === "today" ? (
         <TodaysCard todaysPlan={renderData} />
       ) : (
-        <SavedPlan savedPlan={renderData}/>
+        <SavedPlan savedPlan={renderData} />
       )}
     </div>
   );

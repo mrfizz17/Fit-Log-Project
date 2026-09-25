@@ -15,7 +15,7 @@ export interface Icontext {
 export const exerciseContext = createContext<Icontext |null >(null);
 
 
-export const useCustomContest=()=>{
+export const useCustomContext=()=>{
     const context = useContext(exerciseContext);
 
     if(!context){
