@@ -14,12 +14,8 @@ interface Iparams {
 
 const getsingleData = async (id: number): Promise<Iexcercise> => {
 
-  try{
-
-  }catch(e){
-    
-  }
-  const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`);
+  
+  const res = await fetch(`https://api.api-store.workers.dev/api/fitlog/${id}`);
 
   if (res.status === 404) {
     notFound();

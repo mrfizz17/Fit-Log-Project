@@ -5,7 +5,7 @@ import LibrayCard from "./LibrayCard";
 import { Iexcercise } from "@/types/Excercise";
 
 const getproducts = async():Promise<Iexcercise[]>=>{
-    const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
+    const res = await fetch("https://api.api-store.workers.dev/api/fitlog");
 
     // if(!res.ok){
     //   throw new error('failed to fetch')
