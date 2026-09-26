@@ -28,6 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-theme="light"
+      data-scroll-behavior="smooth"
       className={`${inter.className} ${oswald.className}   h-full antialiased bg-[#0C0D10]`}
     >
       <body className="min-h-full flex flex-col ">

@@ -71,7 +71,7 @@ const Page = () => {
           <input
             type="radio"
             name="my_tabs_1"
-            className={`tab text-[18px]  ${currentTab === "today" ? "bg-[#1F242D] text-[#C4F000]" : "text-white"} `}
+            className={`tab text-[18px]  ${currentTab === "today" ? "bg-[#0F1115] text-[#C4F000]" : "text-white"} `}
             aria-label="Today's plan"
             onChange={() => {
               setTab("today");
@@ -81,7 +81,7 @@ const Page = () => {
           <input
             type="radio"
             name="my_tabs_1"
-            className={`tab  text-[18px] ${currentTab === "saved" ? "bg-[#1F242D] text-[#C4F000]" : "text-white"}`}
+            className={`tab  text-[18px] ${currentTab === "saved" ? "bg-[#0F1115] text-[#C4F000]" : "text-white"}`}
             aria-label="Saved"
             onChange={() => {
               setTab("saved");

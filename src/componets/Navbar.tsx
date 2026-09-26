@@ -36,8 +36,8 @@ const Navbar = () => {
               <Image
                 src={"/logo.png"}
                 alt="fit logo"
-                width={25}
-                height={225}
+                width={28}
+                height={28}
               ></Image>
               <p className="text-white  ml-2 font-bold text-[20px] ">FITLOG</p>
             </div>

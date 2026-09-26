@@ -4,27 +4,43 @@ import { Iexcercise } from "@/types/Excercise";
 
 import AddButton from "@/componets/LibraryList/button/AddButton";
 import SavedButton from "@/componets/LibraryList/button/SavedButton";
-
+import { notFound } from "next/navigation";
 
 interface Iparams {
-    params:{
-        id:string
-    }
+  params: {
+    id: string;
+  };
 }
 
-const getsingleData = async (id:number): Promise<Iexcercise> => {
+const getsingleData = async (id: number): Promise<Iexcercise> => {
+
+  try{
+
+  }catch(e){
+    
+  }
   const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`);
 
+  if (res.status === 404) {
+    notFound();
+  }
+
+  if (!res.ok) {
+    throw new Error(`Invalid to fetch : ${res.status}`);
+  }
+
   const data = await res.json();
+
+  if (!data) {
+    notFound();
+  }
 
   return data;
 };
 
-const page = async ({params}:Iparams) => {
-
-   const {id}=await params;
+const page = async ({ params }: Iparams) => {
+  const { id } = await params;
   const excercise: Iexcercise = await getsingleData(Number(id));
-  console.log(excercise);
 
   return (
     <div className="container mx-auto mt-15 mb-15 flex">
@@ -60,38 +76,37 @@ const page = async ({params}:Iparams) => {
               {/* head */}
 
               <tbody>
-           
                 <tr>
                   <td className="py-2">EQUIPMENT</td>
                   <td className="text-end py-1">{excercise.equipment}</td>
-                  
                 </tr>
-                
+
                 <tr>
                   <td className="py-1">DIFFICULTY</td>
-                  <td  className="text-end py-1" >{excercise.difficulty}</td>
-                
+                  <td className="text-end py-1">{excercise.difficulty}</td>
                 </tr>
-                
+
                 <tr>
                   <td className="py-1">SETS</td>
-                  <td  className="text-end py-1">{excercise.sets}</td>
+                  <td className="text-end py-1">{excercise.sets}</td>
                 </tr>
                 <tr>
                   <td className="py-1">REPS</td>
-                  <td  className="text-end py-1">{excercise.reps}</td>
+                  <td className="text-end py-1">{excercise.reps}</td>
                 </tr>
                 <tr>
                   <td className="py-1">DURATION</td>
-                  <td  className="text-end py-1">{excercise.duration} min</td>
+                  <td className="text-end py-1">{excercise.duration} min</td>
                 </tr>
                 <tr>
                   <td className="py-1">CALORIES</td>
-                  <td  className="text-end py-1">{excercise.caloriesBurned} kcal</td>
+                  <td className="text-end py-1">
+                    {excercise.caloriesBurned} kcal
+                  </td>
                 </tr>
                 <tr>
                   <td className="py-1">RATING</td>
-                  <td className="text-end py-1" >{excercise.rating}</td>
+                  <td className="text-end py-1">{excercise.rating}</td>
                 </tr>
               </tbody>
             </table>
@@ -100,18 +115,17 @@ const page = async ({params}:Iparams) => {
           <div>
             <p className="text-[16px] mb-2 mt-4 ">INSTRUCTION</p>
 
-            {
-                excercise.instructions.map((instruction,ind)=>{
-                    return(
-                        <p key={ind} className="font-sans text-[12px] text-[#D1D5DB] ">{ind+1}. {instruction} </p>
-                    )
-                })
-            }
+            {excercise.instructions.map((instruction, ind) => {
+              return (
+                <p key={ind} className="font-sans text-[12px] text-[#D1D5DB] ">
+                  {ind + 1}. {instruction}{" "}
+                </p>
+              );
+            })}
           </div>
 
-
           <div className="flex gap-2 mt-2">
-            <AddButton excercise={excercise}/>
+            <AddButton excercise={excercise} />
             <SavedButton excercise={excercise} />
           </div>
         </div>

@@ -27,8 +27,8 @@ const TodaysCard = ({ todaysPlan }: { todaysPlan: Iexcercise[] }) => {
             ></Image>
 
             <div className=" grow text-white space-y-2">
-              <p className="text-2xl ">{exercise.name}</p>
-              <p className="font-sans text-[#8A92A0] -mt-2">
+              <p className="text-[20px] font-semibold mt-2">{(exercise.name).toUpperCase()}</p>
+              <p className="font-sans text-[#8A92A0] -mt-2 text-[14px]">
                 {exercise.equipment}
               </p>
               <div className="flex text-[15px] gap-4 justify-start font-sans text-[#9CA3AF] font-semibold">
