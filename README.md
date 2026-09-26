@@ -6,7 +6,14 @@ FitLog is a modern workout library and fitness planning web application designed
 
 The application provides a focused dark-themed interface with a collection of exercises covering major muscle groups, including chest, back, legs, shoulders, arms, core, and full-body movements.
 
-🔗 **Live Demo:** https://fit-log-project-three.vercel.app/
+
+---
+
+## 🌐 Live Application
+
+**FitLog — Workout Library**
+
+https://fit-log-project-three.vercel.app/
 
 ---
 
@@ -124,13 +131,6 @@ Some features that could be added as the project evolves:
 * [ ] Personal fitness goals
 * [ ] Workout analytics dashboard
 
----
-
-## 🌐 Live Application
-
-**FitLog — Workout Library**
-
-https://fit-log-project-three.vercel.app/
 
 ---
 
