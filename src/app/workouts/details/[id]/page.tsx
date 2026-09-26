@@ -54,7 +54,7 @@ const page = async ({ params }: Iparams) => {
         />
 
         <div className="card-body text-amber-50 p-0 mt-5 lg:mt-0">
-          <h2 className="card-title">{excercise.name.toUpperCase()}</h2>
+          <h2 className="card-title text-2xl mt-2">{excercise.name.toUpperCase()}</h2>
           <p className="font-sans text-[#9CA3AF] flex-grow-0">
             {excercise.description}
           </p>
@@ -117,7 +117,7 @@ const page = async ({ params }: Iparams) => {
 
             {excercise.instructions.map((instruction, ind) => {
               return (
-                <p key={ind} className="font-sans text-[12px] text-[#D1D5DB] ">
+                <p key={ind} className="font-sans text-[14px] text-[#D1D5DB] ">
                   {ind + 1}. {instruction}{" "}
                 </p>
               );

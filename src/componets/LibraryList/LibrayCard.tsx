@@ -35,7 +35,7 @@ const LibrayCard = ({ excercise }: propsType) => {
             })}
           </h2>
           <p className="text-[18px] text-white font-semibold mt-2">
-            {excercise.name}
+            {(excercise.name).toUpperCase()}
           </p>
           <p className="text-[11px] text-[#9CA3AF]">{excercise.equipment}</p>
           <div className="divider  h-[0.5px] mt-2 mb-3 bg-[#C2F800] "></div>
