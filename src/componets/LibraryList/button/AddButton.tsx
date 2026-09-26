@@ -24,6 +24,18 @@ const AddButton = ({ excercise }: { excercise: Iexcercise }) => {
         theme: "colored",
         transition: Zoom,
       });
+    } else if (todaysPlan.length > 4) {
+      toast.warning("More than 5 added Complete this first", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Zoom,
+      });
     } else {
       setTodaysPlan([...todaysPlan, excercise]);
       toast.success(`${excercise.name} added to todays plan`, {
